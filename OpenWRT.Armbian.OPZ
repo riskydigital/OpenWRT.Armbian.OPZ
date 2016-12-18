@@ -1,0 +1,26 @@
+1. Install Armbian_5.24.161216_Orangepizero_Ubuntu_xenial_3.4.113.img onto a uSD card using Win32DiskImager.
+
+2. (Optional) Mount the uSD in Ubuntu Laptop and expanded the partition using GParted.
+
+3. Delete everything from uSD except /boot, /lib/modules and /lib/firmware.
+
+4. Mount openwrt-15.05.1-sunxi-root.ext4 on Ubuntu using loopback interface on /mnt/openwrt
+
+5. Copy over the contents of /mnt/openwrt to the root of uSD by merging folders when prompted.
+
+6. Modify /etc/init.d/boot and add 'ulimit -n 10000' before '/sbin/kmloader' command (line39).
+
+7. Execute the following code inside /lib/modules/3.4.113-sun8i 
+
+for x in `find -name *.ko`
+do
+    ln -s $x .
+done
+
+8. Transfer the uSD to OPiZero and power up.
+
+Notes:
+
+Still not sure if its working.
+
+Unable to telnet/ssh the OPZ running the above built image.
