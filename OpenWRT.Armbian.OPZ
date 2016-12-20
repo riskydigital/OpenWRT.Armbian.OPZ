@@ -30,8 +30,10 @@ config interface 'lan'
 
 8. Transfer the uSD to OPiZero and power up.
 
+9. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
+
+10. 'ssh 192.168.1.1' - peace.
+
 Notes:
 
-Still not sure if its working.
 
-Unable to telnet/ssh the OPZ running the above built image.
