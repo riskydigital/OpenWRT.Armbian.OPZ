@@ -20,6 +20,14 @@ do
     ln -s $x .
 done
 
+8. Replace Lan section in /etc/config/network with the below
+
+config interface 'lan'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ipaddr '192.168.1.1'
+	option ifname 'eth0'
+
 8. Transfer the uSD to OPiZero and power up.
 
 Notes:
