@@ -13,14 +13,24 @@ Guide:
 
 6. Modify /etc/init.d/boot and add 'ulimit -n 10000' before '/sbin/kmloader' command (line39).
 
-7. Execute the following code inside /lib/modules/3.4.113-sun8i 
+7. Change directory to /lib/modules/3.4.113-sun8i - "cd /lib/modules/3.4.113-sun8i"
+
+8. Create link-ko.sh - "touch link-ko.sh"
+
+9. Edit link-ko.sh - "nano link-ko.sh"
+
+10. Copy the below contents into that file, save (Ctrl + O) and close (Ctrl + X) file.
 
 for x in `find -name *.ko`
 do
     ln -s $x .
 done
 
-8. Replace Lan section in /etc/config/network with the below
+11. Then make link-ko.sh executable - "chmod +x link-ko.sh"
+
+12. Execute link-ko.sh - "./link-ko.sh"
+
+12. Replace Lan section in /etc/config/network with the below. (You can customize the below to suit you LAN and Router configuration.)
 
 config interface 'lan'
 	option proto 'static'
@@ -28,11 +38,11 @@ config interface 'lan'
 	option ipaddr '192.168.1.1'
 	option ifname 'eth0'
 
-8. Transfer the uSD to OPiZero and power up.
+13. Transfer the uSD to OPiZero and power up.
 
-9. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
+14. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
 
-10. 'ssh 192.168.1.1' - peace.
+15. 'ssh 192.168.1.1' - peace.
 
 Notes:
 
