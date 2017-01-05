@@ -3,7 +3,7 @@ Guide:
 
 1. Install Armbian_5.24.161216_Orangepizero_Ubuntu_xenial_3.4.113.img onto a uSD card using Win32DiskImager.
 
-2. (Optional) Mount the uSD in Ubuntu Laptop and expanded the partition using GParted.
+2. (Optional) Mount the uSD in Ubuntu Laptop and expand the partition using GParted.
 
 3. Delete everything from uSD except /boot, /lib/modules and /lib/firmware.
 
