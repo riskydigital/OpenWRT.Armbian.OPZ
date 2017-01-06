@@ -1,7 +1,7 @@
 
 Guide:
 
-1. Install Armbian_5.24.161216_Orangepizero_Ubuntu_xenial_3.4.113.img onto a uSD card using Win32DiskImager.
+1. Install Armbian_5.24.161216_Orangepizero_Ubuntu_xenial_3.4.113.img onto a uSD card using Win32DiskImager or Ubuntu Disk Image Writer
 
 2. (Optional) Mount the uSD in Ubuntu Laptop and expand the partition using GParted.
 
@@ -9,15 +9,17 @@ Guide:
 
 4. Mount openwrt-15.05.1-sunxi-root.ext4 on Ubuntu using loopback interface on /mnt/openwrt
 
+	#mount -o loop openwrt-15.05.1-sunxi-root.ext4 /mnt/openwrt
+
 5. Copy over the contents of /mnt/openwrt to the root of uSD by merging folders when prompted.
 
 6. Modify /etc/init.d/boot and add 'ulimit -n 10000' before '/sbin/kmloader' command (line39).
 
-7. Change directory to /lib/modules/3.4.113-sun8i - "cd /lib/modules/3.4.113-sun8i"
+7. Change directory to /lib/modules/3.4.113-sun8i - "#cd /lib/modules/3.4.113-sun8i"
 
-8. Create link-ko.sh - "touch link-ko.sh"
+8. Create link-ko.sh - "#touch link-ko.sh"
 
-9. Edit link-ko.sh - "nano link-ko.sh"
+9. Edit link-ko.sh - "#nano link-ko.sh"
 
 10. Copy the below contents into that file, save (Ctrl + O) and close (Ctrl + X) file.
 
@@ -26,23 +28,31 @@ do
     ln -s $x .
 done
 
-11. Then make link-ko.sh executable - "chmod +x link-ko.sh"
+11. Then make link-ko.sh executable - "#chmod +x link-ko.sh"
 
-12. Execute link-ko.sh - "./link-ko.sh"
+12. Execute link-ko.sh - "#./link-ko.sh"
 
 12. Replace Lan section in /etc/config/network with the below. (You can customize the below to suit you LAN and Router configuration.)
+
+Option 1:
 
 config interface 'lan'
 	option proto 'static'
 	option netmask '255.255.255.0'
 	option ipaddr '192.168.1.1'
 	option ifname 'eth0'
+	
+Option 2:
+
+config interface 'lan'
+	option proto 'dhcp'
+	option ifname 'eth0'
 
 13. To enable WiFi - #printf "xradio_wlan\nxradio_wlan" >> /etc/modules.d/xradio_wlan
 
 14. Transfer the uSD to OPiZero and power up.
 
-15. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
+15. 'telnet 192.168.1.1', update password using '#passwd root' and then exit.
 
 16. 'ssh 192.168.1.1' - peace.
 
