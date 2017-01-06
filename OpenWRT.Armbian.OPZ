@@ -38,11 +38,13 @@ config interface 'lan'
 	option ipaddr '192.168.1.1'
 	option ifname 'eth0'
 
-13. Transfer the uSD to OPiZero and power up.
+13. To enable WiFi - #printf "xradio_wlan\nxradio_wlan" >> /etc/modules.d/xradio_wlan
 
-14. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
+14. Transfer the uSD to OPiZero and power up.
 
-15. 'ssh 192.168.1.1' - peace.
+15. 'telnet 192.168.1.1', update password using 'passwd root' and then exit.
+
+16. 'ssh 192.168.1.1' - peace.
 
 Notes:
 
