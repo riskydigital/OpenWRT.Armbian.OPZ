@@ -54,7 +54,13 @@ config interface 'lan'
 
 15. Transfer the uSD to OPiZero and power up.
 
-16. 'telnet 192.168.1.1', update password using '#passwd root' and then exit. If you are unable to login, wait for 10 mins to complete first boot up, switch off OPiZero, remove uSD and repeat steps from network configuration using /etc/config/network
+16. 'telnet 192.168.1.1', update password using '#passwd root' and then exit. 
+
+	If you are unable to login, 
+	wait for 10 mins to complete first boot up, 
+	switch off OPiZero, 
+	remove uSD and 
+	repeat steps from network configuration using /etc/config/network
 
 17. 'ssh 192.168.1.1' - peace.
 
