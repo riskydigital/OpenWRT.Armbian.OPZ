@@ -51,10 +51,16 @@ config interface 'lan'
 	option ifname 'eth0'
 
 
+15. Enable wifi radio device, put this into /etc/config/wireless:
 
-15. Transfer the uSD to OPiZero and power up.
+config wifi-device radio0
+        option type     'mac80211'
+        option channel  'auto'
+        option path 'platform/soc/1c10000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1'
 
-16. 'telnet 192.168.1.1', update password using '#passwd root' and then exit. 
+16. Transfer the uSD to OPiZero and power up.
+
+17. 'telnet 192.168.1.1', update password using '#passwd root' and then exit. 
 
 	If you are unable to login, 
 	wait for 10 mins to complete first boot up, 
@@ -62,7 +68,7 @@ config interface 'lan'
 	remove uSD and 
 	repeat steps from network configuration using /etc/config/network
 
-17. 'ssh 192.168.1.1' - peace.
+18. 'ssh 192.168.1.1' - peace.
 
 Notes:
 
